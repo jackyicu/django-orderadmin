@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Country, Client, Currency, Order, Category, Product, Cart, Shipment, PaymentTerm, Payment
+from .models import Country, Client,Sales, Currency, Order, Category, Product, Cart, Shipment, PaymentTerm, Payment
 # from django.contrib.admin import AdminSite
 
 # class MyAdminSite(AdminSite):
@@ -80,8 +80,8 @@ class PaymentAdmin(admin.ModelAdmin):
 
     def get_sales(self, object):
         return object.order.sales.name
-    get_sales.admin_order_field = 'sales'
-    get_sales.short_description = 'Client'    
+    # get_sales.admin_order_field = 'sales'
+    get_sales.short_description = 'Sales'    
 
 admin.site.register(Payment, PaymentAdmin)
 admin.site.register(PaymentTerm)
@@ -99,7 +99,7 @@ class ShipmentAdmin(admin.ModelAdmin):
 
     def get_sales(self, object):
         return object.order.sales.name
-    get_sales.admin_order_field = 'sales'
+    # get_sales.admin_order_field = 'sales'
     get_sales.short_description = 'Client'     
 
     def get_term(self, object):

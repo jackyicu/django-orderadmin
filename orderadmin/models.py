@@ -30,20 +30,20 @@ class Currency(models.Model):
         return self.name
 
 class Sales(models.Model):
-    name = models.CharField(max_length=8)
+    name = models.CharField(max_length=8, default='admin')
 
     def __str__(self):
         return self.name    
 
 class Order(models.Model):
     date = models.DateField(verbose_name='Order Date')
-    sales = models.ForeignKey(Sales, on_delete=models.CASCADE)
+    sales = models.ForeignKey(Sales, on_delete=models.CASCADE, blank=True)
     pi_no = models.CharField(max_length=15)
     po_no = models.CharField(max_length=15, blank=True)
-    sc_no = models.CharField(max_length=15)
+    sc_no = models.CharField(max_length=15, blank=True)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
-    amount = models.DecimalField(max_digits=10, decimal_places=2)
-    currency = models.ForeignKey(Currency,on_delete=None)
+    amount = models.DecimalField(max_digits=10, decimal_places=2, null=True,blank=True)
+    currency = models.ForeignKey(Currency,on_delete=None, blank=True, null=True)
     status = models.CharField(max_length=10, blank=True)
     remarks = models.CharField(max_length=50, blank=True)
 
