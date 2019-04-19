@@ -12,4 +12,5 @@ orderadmin/apps.py
 orderadmin/models.py
 orderadmin/tests.py
 orderadmin/views.py
+orderadmin/migrations/0001_initial.py
 orderadmin/migrations/__init__.py
