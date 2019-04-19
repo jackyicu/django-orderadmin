@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+django_orderadmin.egg-info/PKG-INFO
+django_orderadmin.egg-info/SOURCES.txt
+django_orderadmin.egg-info/dependency_links.txt
+django_orderadmin.egg-info/top_level.txt
+orderadmin/__init__.py
+orderadmin/admin.py
+orderadmin/apps.py
+orderadmin/models.py
+orderadmin/tests.py
+orderadmin/views.py
+orderadmin/migrations/0001_initial.py
+orderadmin/migrations/__init__.py
