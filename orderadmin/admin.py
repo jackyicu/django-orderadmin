@@ -87,7 +87,7 @@ admin.site.register(Payment, PaymentAdmin)
 admin.site.register(PaymentTerm)
 
 class ShipmentAdmin(admin.ModelAdmin):
-    list_display = ['bl_date', 'get_sales','get_sc_no', 'carrier','tracking_no', 'bill_no', 'term']
+    list_display = ['bl_date', 'get_sales','get_sc_no', 'carrier','tracking_no', 'bill_no', 'get_term']
     list_filter = ('bl_date',)
     list_per_page = 20
     search_fields = ['order__sc_no']
@@ -102,11 +102,16 @@ class ShipmentAdmin(admin.ModelAdmin):
     get_sales.admin_order_field = 'sales'
     get_sales.short_description = 'Client'     
 
+    def get_term(self, object):
+        return object.order.sales.name
+    get_term.admin_order_field = 'term'
+    get_term.short_description = 'Term'        
+
 admin.site.register(Shipment, ShipmentAdmin)
 
 class CartAdmin(admin.ModelAdmin):
     list_display = ['get_order_date', 'serial_no','get_sc_no']
-    list_filter = ('bl_date',)
+    list_filter = ('order__date',)
     list_per_page = 20
     search_fields = ['order__sc_no', 'serial_no']
 
