@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: django-orderadmin
-Version: 0.1
+Version: 0.1.1
 Summary: A simple Django app to conduct order tracking.
 Home-page: https://www.example.com/
 Author: Jacky
